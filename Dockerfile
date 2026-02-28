@@ -1,17 +1,15 @@
 # ---- Build stage ----
-FROM eclipse-temurin:21-jdk AS build
+FROM maven:3.9-amazoncorretto-21 AS build
 WORKDIR /app
 
-# Copy only the spring project folder into container
+# copy spring project
 COPY youtubeclone/ .
 
-RUN chmod +x mvnw
-RUN ./mvnw -DskipTests package
+RUN mvn -DskipTests package
 
 # ---- Run stage ----
-FROM eclipse-temurin:21-jre
+FROM amazoncorretto:21-alpine
 WORKDIR /app
 
 COPY --from=build /app/target/*.jar app.jar
-
 CMD ["sh", "-c", "java -jar app.jar --server.port=${PORT:-8080}"]
