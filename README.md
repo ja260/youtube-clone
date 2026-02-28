@@ -1,6 +1,8 @@
 # YouTube Clone (Spring Boot + Thymeleaf)
 
-A simple YouTube-like UI built using **Spring Boot (Java)** and **Thymeleaf**.  
+🔴 **Live Demo:** https://youtube-clone-mxis.onrender.com/
+
+A simple YouTube-like UI built using **Spring Boot (Java)** and **Thymeleaf**.
 It supports dynamic video playback using URL parameters and a recommended list.
 
 ## Features
